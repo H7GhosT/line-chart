@@ -1,6 +1,6 @@
 import "../builtins-upgrade";
 
-import styles from "./styles/chart-manager.css";
+import "./styles/chart-manager.css";
 import { LineChart } from "./charts/line-chart";
 import { LineChartWithMarks } from "./charts/line-chart-with-marks";
 import { Slider } from "./slider";
@@ -16,7 +16,7 @@ export class ChartManager {
     this.$container = config.$container;
 
     this.$chartManager = document.createElement("div");
-    this.$chartManager.classList.add(styles.chartManager);
+    this.$chartManager.classList.add("chartManager");
     this.$chartManager.style.setProperty("--width", this.width + "px");
 
     this.shownCharts = new Set(Object.keys(this.chart.columns));
@@ -67,7 +67,7 @@ export class ChartManager {
     this.overviewLineChart.canvas.style.position = "absolute";
 
     this.$checkboxContainer = document.createElement("div");
-    this.$checkboxContainer.classList.add(styles.checkboxContainer);
+    this.$checkboxContainer.classList.add("checkboxContainer");
 
     this.$chartManager.appendChild(this.$checkboxContainer);
 

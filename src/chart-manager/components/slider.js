@@ -1,4 +1,4 @@
-import styles from "./styles/slider.css";
+import "./styles/slider.css";
 
 import { createAnimation } from "../utils";
 
@@ -17,10 +17,10 @@ export class Slider {
     this.mouseDown = false;
 
     this.$sliderWrapper = document.createElement("div");
-    this.$sliderWrapper.classList.add(styles.sliderWrapper);
+    this.$sliderWrapper.classList.add("sliderWrapper");
 
     const $slider = document.createElement("div");
-    $slider.classList.add(styles.slider);
+    $slider.classList.add("slider");
 
     this.$sliderWrapper.appendChild($slider);
 
@@ -29,14 +29,14 @@ export class Slider {
     this.$sliderWrapper.style.setProperty("--drag-width", this.dragWidth);
 
     const $sliderWindow = document.createElement("div");
-    $sliderWindow.classList.add(styles.sliderWindow);
+    $sliderWindow.classList.add("sliderWindow");
 
     $slider.appendChild($sliderWindow);
 
     const $blurLeft = document.createElement("div");
     const $blurRight = document.createElement("div");
-    $blurLeft.classList.add(styles.blurLeft);
-    $blurRight.classList.add(styles.blurRight);
+    $blurLeft.classList.add("blurLeft");
+    $blurRight.classList.add("blurRight");
 
     $sliderWindow.appendChild($blurLeft);
     $sliderWindow.appendChild($blurRight);
@@ -69,7 +69,7 @@ export class Slider {
     const change = x - this.startDrag[0];
 
     let { left, right } = this.state;
-    
+
     !this.draggingRight &&
       (left = Math.max(
         0,
@@ -108,7 +108,7 @@ export class Slider {
   }
   updateSlider() {
     const { state } = this;
-    
+
     this.$slider.style.setProperty("--left", state.left * this.width);
     this.$slider.style.setProperty("--right", (1 - state.right) * this.width);
   }

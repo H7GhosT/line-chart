@@ -1,4 +1,4 @@
-import styles from "./styles/checkbox.css";
+import "./styles/checkbox.css";
 
 export class Checkbox {
   constructor({ label, checked = false, $container, color }) {
@@ -9,13 +9,13 @@ export class Checkbox {
     this.checked = false;
 
     this.$checkboxWrapper = document.createElement("div");
-    this.$checkboxWrapper.classList.add(styles.checkboxWrapper);
+    this.$checkboxWrapper.classList.add("checkboxWrapper");
     this.$checkboxWrapper.style.setProperty("--color", color);
 
     this.$checkbox = document.createElement("span");
-    this.$checkbox.classList.add(styles.checkbox);
+    this.$checkbox.classList.add("checkbox");
     this.$label = document.createElement("span");
-    this.$label.classList.add(styles.label);
+    this.$label.classList.add("label");
     this.$label.textContent = label;
 
     this.$checkboxWrapper.appendChild(this.$checkbox);
@@ -32,12 +32,12 @@ export class Checkbox {
 
   toggleChecked() {
     this.checked = !this.checked;
-    
-    this.$checkbox.classList.remove(styles.boom);
+
+    this.$checkbox.classList.remove("boom");
     void this.$checkbox.offsetWidth
-    this.$checkbox.classList.add(styles.boom);
-    
-    this.checked ? this.$checkbox.classList.add(styles.checked) : this.$checkbox.classList.remove(styles.checked);
+    this.$checkbox.classList.add("boom");
+
+    this.checked ? this.$checkbox.classList.add("checked") : this.$checkbox.classList.remove("checked");
 
     this.subscribers.forEach(s => s(this.checked));
   }
