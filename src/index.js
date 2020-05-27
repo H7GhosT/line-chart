@@ -1,11 +1,10 @@
 import "./styles.css"
-import fs from "fs";
-import path from "path";
+import chartData from "./chart_data";
 import { ChartManager } from "./chart-manager/components/chart-manager";
 
 const $root = document.querySelector(".root");
 
-for(const chart of getCharts()) {
+for (const chart of chartData) {
   const chartManager = new ChartManager({
     width: 600,
     height: 310,
@@ -14,20 +13,9 @@ for(const chart of getCharts()) {
     animationSpeed: 170,
     $container: $root
   });
-  
+
   chartManager.render();
 }
-
-
-function getOneChart() {
-  return JSON.parse(fs.readFileSync(path.join(__dirname, "one_chart.json")));
-}
-
-function getCharts() {
-  return JSON.parse(fs.readFileSync(path.join(__dirname, "chart_data.json")));
-}
-
-
 
 function parseChart(chart) {
   const parsed = {
