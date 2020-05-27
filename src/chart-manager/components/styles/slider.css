@@ -1,0 +1,78 @@
+.sliderWrapper {
+  width: calc(var(--width) * 1px);
+  height: calc(var(--height) * 1px);
+  overflow: hidden;
+  padding: 3px 0;
+  box-sizing: initial;
+  position: relative;
+  margin: 2px 0px;
+}
+
+.slider {
+  width: calc(var(--width) * 1px);
+  height: calc(var(--height) * 1px);
+  position: relative;
+}
+
+.sliderWindow {
+  position: absolute;
+  left: calc(var(--left) * 1px);
+  right: calc(var(--right) * 1px);
+  top: 50%;
+  transform: translateY(-50%);
+  height: calc(var(--height) * 1px);
+  border-color: rgba(143, 151, 149, 0.795);
+  border-style: solid;
+  border-top-width: 2px;
+  border-bottom-width: 2px;
+  border-left-width: calc(var(--drag-width) * 1px);
+  border-right-width: calc(var(--drag-width) * 1px);
+  border-radius: 5px;
+  z-index: 100;
+}
+
+.sliderWindow::before,
+.sliderWindow::after {
+  content: "";
+  position: absolute;
+  width: 2px;
+  height: calc(var(--height) * .35px);
+  border-radius: 1.5px;
+  top: 50%;
+  background-color: #ffffff;
+  pointer-events: none;
+}
+
+.sliderWindow::before {
+  left: calc(var(--drag-width) * -1px / 2);
+  transform: translate(-50%, -50%);
+}
+
+.sliderWindow::after {
+  right: calc(var(--drag-width) * -1px / 2);
+  transform: translate(50%, -50%);
+}
+
+.blurLeft,
+.blurRight {
+  content: "";
+  position: absolute;
+  width: calc(var(--width) * 1px);
+  height: calc(var(--height) * 1px);
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(30, 45, 45, 0.2);
+  pointer-events: none;
+  mix-blend-mode: color;
+}
+
+.blurLeft {
+  left: 0;
+  transform: translateX(-100%) translateX(calc(-1 * var(--drag-width) * 1px))
+    translateY(-50%);
+}
+.blurRight {
+  right: 0;
+  transform: translateX(100%) translateX(calc(var(--drag-width) * 1px))
+    translateY(-50%);
+}

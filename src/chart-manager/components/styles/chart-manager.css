@@ -1,0 +1,9 @@
+.chartManager {
+  width: var(--width);
+}
+
+.checkboxContainer {
+  width: var(--width);
+  display: flex;
+  flex-wrap: wrap;
+}
